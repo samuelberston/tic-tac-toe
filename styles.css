@@ -1,7 +1,60 @@
-body {
-  background-color: powderblue;
+h1 {
+  text-align: center;
 }
 
-#row-1 {
+
+/*
+TABLE STYLING
+*/
+table {
+  margin: 5px auto;
+  padding: 50px;
+  border-radius: 25%;
   background-color: pink;
+}
+
+td {
+  width: 100px;
+  height: 100px;
+  font-size: 50px;
+  font-style: italic;
+  color: rgb(255, 0, 128);
+  text-align: center;
+}
+
+td:hover {
+  background-color: rgba(248, 203, 210, 0.733);
+}
+
+.v {
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.h {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}
+
+.c1 {
+  border-radius: 50% 0 0 0
+}
+
+.c2 {
+  border-radius:  0 50% 0 0
+}
+
+.c3 {
+  border-radius: 0 0 0 50%
+}
+
+.c4 {
+  border-radius: 0 0 50% 0
+}
+
+/* message */
+p {
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
 }
