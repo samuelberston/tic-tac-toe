@@ -1,12 +1,38 @@
+#app {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: ;
+}
 h1 {
+  grid-column: 2;
   text-align: center;
+  font-size: 50px;
+  font-style: italic;
+  color: rgb(255, 0, 128);
 }
 
+button {
+  grid-column: 2;
+  width: 50px;
+  display: flex;
+  justify-self: center;
+  font-size: 15px;
+  font-style: italic;
+}
+
+/* message */
+#message {
+  grid-column: 2;
+  font-size: 25px;
+  font-style: italic;
+  text-align: center;
+}
 
 /*
 TABLE STYLING
 */
 table {
+  grid-column: 2;
   margin: 5px auto;
   padding: 50px;
   border-radius: 25%;
@@ -52,9 +78,3 @@ td:hover {
   border-radius: 0 0 50% 0
 }
 
-/* message */
-p {
-  font-size: 25px;
-  font-style: italic;
-  text-align: center;
-}

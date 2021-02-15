@@ -1,7 +1,6 @@
 var turn = true;
 
 
-
 var checkForWinner = function(event) {
   var cell1 = document.getElementById('cell-1').innerHTML;
   var cell2 = document.getElementById('cell-2').innerHTML;
@@ -19,6 +18,7 @@ var checkForWinner = function(event) {
       cell7 !== "" && cell7 == cell8 && cell7 === cell9
     ) {
     document.getElementById('message').children[0].innerHTML = `${event.target.innerHTML} won!!`
+    disable();
   }
 
   // vertical winner
@@ -27,6 +27,7 @@ var checkForWinner = function(event) {
       cell3 !== "" && cell3 === cell6 && cell3 === cell9
     ) {
     document.getElementById('message').children[0].innerHTML = `${event.target.innerHTML} won!!`
+    disable();
   }
 
   // diagonal winner
@@ -34,11 +35,19 @@ var checkForWinner = function(event) {
       cell3 !== "" && cell3 === cell5 && cell3 === cell7
   ) {
     document.getElementById('message').children[0].innerHTML = `${event.target.innerHTML} won!!`
+    disable();
   }
 
   // draw
   else if (cell1 !== "" && cell2 !== "" && cell3 !== "" && cell4 !== "" && cell5 !== "" && cell6 !== "" && cell7 !== "" && cell8 !== "" && cell9 !== "") {
     document.getElementById('message').children[0].innerHTML = 'Noone won :('
+    disable();
+  }
+}
+
+var disable = function() {
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].onclick = '';
   }
 }
 
@@ -58,9 +67,24 @@ var handleCellClick = function(event) {
   }
 }
 
-// set event listeners
 var cells = document.getElementsByClassName("cell");
 
-for (var i = 0; i < cells.length; i++) {
-  cells[i].onclick = handleCellClick;
+var handleButtonClick = function(event) {
+  console.log('click');
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].innerHTML = "";
+  }
+  turn = !turn;
+  activate();
+  document.getElementById('message').children[0].innerHTML = 'it\'s x\'s turn';
 }
+document.getElementById('btn').addEventListener('click', handleButtonClick);
+
+
+// set event listeners
+var activate = () => {
+  for (var i = 0; i < cells.length; i++) {
+    cells[i].onclick = handleCellClick;
+  }
+}
+activate();
